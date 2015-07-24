@@ -77,7 +77,7 @@ namespace DateTimeHighRes
             // we're given a DateTime, so let's quickly get a high-res timestamp to accompany it.
             long ts = Stopwatch.GetTimestamp();
 
-            if (!Stopwatch.IsHighResolution) return dt;
+            if (Unreliable) return dt;
 
             bool systemTicksChanged = false;
             if (dt.Ticks != LastSystemTicks)
